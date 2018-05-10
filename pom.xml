@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.openbdt</groupId>
+	<artifactId>archetype-mobile</artifactId>
+	<version>2.1</version>
+	<packaging>maven-archetype</packaging>
+
+	<name>archetype-mobile</name>
+	<url>http://openbdt.io/</url>
+	<properties>
+		<openbdt.version>2.1</openbdt.version>
+	</properties>
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.archetype</groupId>
+				<artifactId>archetype-packaging</artifactId>
+				<version>2.4</version>
+			</extension>
+		</extensions>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-archetype-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<!-- INTALL DEPENDENCIES IN LOCAL MAVEN REPOSITORY (INSTALL PHASE) -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+					<executions>
+						<!-- OPENBDT -->
+						<execution>
+							<id>install-openbdt</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt/_remote.repositories</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- CORE -->
+						<execution>
+							<id>install-core</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt-core/openbdt.core-${openbdt.version}.jar</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.core</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt-core/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- REPORT -->
+						<execution>
+							<id>install-report</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt-report/openbdt.report-${openbdt.version}.jar</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.report</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt-report/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- OPENBDT.PLUGIN.MAVEN -->
+						<execution>
+							<id>install-plugin-maven</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt-plugin-maven/openbdt.plugin.maven-${openbdt.version}.jar</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.plugin.maven</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt-plugin-maven/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- OPENBDT.MOBILE -->
+						<execution>
+							<id>install-openbdt.mobile</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt.mobile/_remote.repositories</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.mobile</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt.mobile/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- ADAPTER.APPIUM -->
+						<execution>
+							<id>install-adapter-appium</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt-adapter-appium/openbdt.adapter.appium-${openbdt.version}.jar</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.adapter.appium</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt-adapter-appium/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+						<!-- OPENBDT.MOBILE-STARTER -->
+						<execution>
+							<id>install-openbdt.mobile-starter</id>
+							<phase>install</phase>
+							<configuration>
+								<file>${basedir}/lib/openbdt.mobile-starter/openbdt.mobile-starter-${openbdt.version}.jar</file>
+								<repositoryLayout>default</repositoryLayout>
+								<groupId>io.openbdt</groupId>
+								<artifactId>openbdt.mobile-starter</artifactId>
+								<version>${openbdt.version}</version>
+								<packaging>jar</packaging>
+								<pomFile>${basedir}/lib/openbdt.mobile-starter/pom.xml</pomFile>
+							</configuration>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
